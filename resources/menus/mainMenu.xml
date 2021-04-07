@@ -1,0 +1,6 @@
+<menu2 id="MainMenu" title="@Strings.MTitle">
+    <menu-item id="newSeason" label="@Strings.MNewSeason" subLabel="@Strings.MNewSeasonSub"></menu-item>
+    <menu-item id="seasons" label="@Strings.MSeasons" subLabel="@Strings.MSeasonsSub"></menu-item>
+    <menu-item id="clearData" label="@Strings.MClear"></menu-item>
+    <menu-item id="setSeason" label="@Strings.MSet" subLabel="@Strings.MSetSub"></menu-item>
+</menu2>

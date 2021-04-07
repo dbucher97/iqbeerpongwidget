@@ -53,7 +53,7 @@ class BeerpongView extends WatchUi.View {
 
     function onUpdate(dc) {
         var sd = (model.getCurrentCpg() * 10 + 0.5).toNumber()
-                    - (model.getCpg(false) * 10 + 0.5).toNumber();
+                    - (model.getCpg(-1) * 10 + 0.5).toNumber();
         if(sd.abs() > 0) {
             if(sd < 0) {
                 dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);

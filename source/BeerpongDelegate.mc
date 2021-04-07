@@ -35,7 +35,7 @@ class BeerpongDelegate extends WatchUi.BehaviorDelegate {
     function initialize(aModel) {
         BehaviorDelegate.initialize();
         model = aModel;
-        statsView = new StatsView(self, model, false);
+        statsView = new StatsView(self, model, null);
     }
 
     function chooseStart() {
@@ -77,12 +77,8 @@ class BeerpongDelegate extends WatchUi.BehaviorDelegate {
 
     function onLongSelect() {
         selectTimer = null;
-        if(state == 0) {
-            state = 3;
-        } else {
-            state = 0;
-        }
-        WatchUi.switchToView(getView(), self, WatchUi.SLIDE_UP);
+        statsView = statsView.getTotalView();
+        WatchUi.switchToView(statsView, self, WatchUi.SLIDE_UP);
     }
 
     function onKey(evt) {
@@ -109,14 +105,18 @@ class BeerpongDelegate extends WatchUi.BehaviorDelegate {
             return statsView;
         } else if(state == 1) {
             return beerpongView;
-        } else if(state == 2){
+        } else {
             return chooseView;
-        } else if(state == 3) {
-            return new StatsView(self, model, true);
         }
     }
 
     function getModel() {
         return model;
+    }
+
+    function onMenu() {
+        if(state == 0) {
+            WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(model), WatchUi.SLIDE_IMMEDIATE);
+        }
     }
 }

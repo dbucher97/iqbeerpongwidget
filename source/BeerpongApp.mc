@@ -40,11 +40,6 @@ class BeerpongApp extends Application.AppBase {
         return [new StatsGlance(model)];
     }
 
-    function getSettingsView() {
-        var delegate = new MyMenuInputDelegate();
-        return [new Rez.Menus.MainMenu(), delegate, WatchUi.SLIDE_IMMEDIATE];
-    }
-
     // Return the initial view of your application here
     function getInitialView() {
         var delegate = new BeerpongDelegate(model);
@@ -53,14 +48,3 @@ class BeerpongApp extends Application.AppBase {
     }
 
 }
-
-class MyMenuInputDelegate extends WatchUi.Menu2InputDelegate {
-    function initialize() {
-        Menu2InputDelegate.initialize();
-    }
-
-    function onSelect(item) {
-        System.println(item.getId());
-    }
-}
-

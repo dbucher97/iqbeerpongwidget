@@ -25,27 +25,15 @@ class BeerpongModel {
     var wins;
     var season;
 
-    // All Time
-    var totalCups;
-    var totalGames;
-    var totalWins;
-
     function initialize() {
         cups = Storage.getValue("cups");
-        if(cups == null) { cups = 0.0; }
+        if(cups == null) { cups = [0.0, 0.0]; }
         games = Storage.getValue("games");
-        if(games == null) { games = 0; }
+        if(games == null) { games = [0, 0]; }
         wins = Storage.getValue("wins");
-        if(wins == null) { wins = 0; }
+        if(wins == null) { wins = [0, 0]; }
         season = Storage.getValue("season");
         if(season == null) { season = 1; }
-        totalCups = Storage.getValue("totalCups");
-        if(totalCups == null) { totalCups = 0.0; }
-        totalGames = Storage.getValue("totalGames");
-        if(totalGames == null) { totalGames = 0; }
-        totalWins = Storage.getValue("totalWins");
-        if(totalWins == null) { totalWins = 0; }
-        currentCups = 0.0;
     }
 
     function newGame() {
@@ -72,13 +60,13 @@ class BeerpongModel {
     }
 
     function endGame(win) {
-        games++;
-        totalGames++;
-        cups += currentCups;
-        totalCups += currentCups;
+        games[season]++;
+        games[0]++;
+        cups[season] += currentCups;
+        cups[0] += currentCups;
         if(win) {
-            wins++;
-            totalWins++;
+            wins[season]++;
+            wins[0]++;
         }
     }
 
@@ -87,67 +75,53 @@ class BeerpongModel {
         Storage.setValue("games", games);
         Storage.setValue("wins", wins);
         Storage.setValue("season", season);
-        Storage.setValue("totalCups", totalCups);
-        Storage.setValue("totalGames", totalGames);
-        Storage.setValue("totalWins", totalWins);
     }
 
     function newSeason() {
         season++;
-        cups = 0.0;
-        games = 0;
-        wins = 0;
+        cups.add(0.0);
+        games.add(0);
+        wins.add(0);
     }
 
-    function getGames(total) {
-        if(total) {
-            return totalGames;
+    function fixS(s) {
+        if(s == -1 || s == null) {
+            return season;
         } else {
-            return games;
+            return s;
         }
     }
 
-    function getCups(total) {
-        if(total) {
-            return totalCups;
+    function getGames(s) {
+        s = fixS(s);
+        return games[s];
+    }
+
+    function getCups(s) {
+        s = fixS(s);
+        return cups[s];
+    }
+
+    function getWins(s) {
+        s = fixS(s);
+        return wins[s];
+    }
+
+    function getCpg(s) {
+        s = fixS(s);
+        if(games[s] == 0) {
+            return 0.0;
         } else {
-            return cups;
+            return cups[s] / games[s];
         }
     }
 
-    function getWins(total) {
-        if(total) {
-            return totalWins;
+    function getWpg(s) {
+        s = fixS(s);
+        if(games[s] == 0) {
+            return 0.0;
         } else {
-            return wins;
-        }
-    }
-
-    function getCpg(total) {
-        if(total) {
-            if(totalGames == 0) {
-                return 0.0;
-            }
-            return totalCups / totalGames;
-        } else {
-            if(games == 0) {
-                return 0.0;
-            }
-            return cups / games;
-        }
-    }
-
-    function getWpg(total) {
-        if(total) {
-            if(totalGames == 0) {
-                return 0.0;
-            }
-            return totalWins.toDouble() / totalGames;
-        } else {
-            if(games == 0) {
-                return 0.0;
-            }
-            return wins.toDouble() / games;
+            return wins[s].toDouble() / games[s];
         }
     }
 
@@ -156,10 +130,53 @@ class BeerpongModel {
     }
 
     function getCurrentCpg() {
-        return (cups + currentCups)/(games + 1);
+        return (cups[season] + currentCups)/(games[season] + 1);
     }
 
     function getCurrentCups() {
         return currentCups;
+    }
+
+    function reset() {
+        Storage.clearValues();
+        cups = [0.0, 0.0];
+        games = [0, 0];
+        wins = [0, 0];
+        season = 1;
+    }
+
+    function deleteSeason(s) {
+        s = fixS(s);
+        cups[0] -= cups[s];
+        games[0] -= games[s];
+        wins[0] -= wins[s];
+        cups.remove(cups[s]);
+        games.remove(games[s]);
+        wins.remove(wins[s]);
+        season -= 1;
+        if(season == 0) {
+            newSeason();
+        }
+    }
+
+    function changeCups(s, n) {
+        s = fixS(s);
+        var d = n - cups[s];
+        cups[0] += d;
+        cups[s] += d;
+    }
+
+    function changeGames(s, n) {
+        s = fixS(s);
+        var d = n - games[s];
+        games[0] += d;
+        games[s] += d;
+    }
+
+    function changeWins(s, n) {
+        s = fixS(s);
+        var d = n - wins[s];
+        wins[0] += d;
+        wins[s] += d;
     }
 }

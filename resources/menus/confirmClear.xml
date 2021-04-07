@@ -1,0 +1,4 @@
+<menu2 id="ClearMenu" title="@Strings.MCTitle">
+    <menu-item id="clearAbort" label="@Strings.MCNo"></menu-item>
+    <menu-item id="clearConfirm" label="@Strings.MCYes"></menu-item>
+</menu2>

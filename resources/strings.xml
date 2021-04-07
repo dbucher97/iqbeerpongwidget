@@ -1,5 +1,5 @@
 <resources>
-    <string id="AppName">BeerpongStats</string>
+    <string id="AppName">BeerPongStats</string>
     <string id="Win">WON</string>
     <string id="Loose">LOST</string>
     <string id="Resume">RESUME</string>
@@ -10,4 +10,21 @@
     <string id="AllTime">ALL TIME</string>
     <string id="Wpg">WPG</string>
     <string id="Cpg">CPG</string>
+
+    <string id="MTitle">BeerPong Menu</string>
+    <string id="MClear">Clear Data</string>
+    <string id="MCTitle">Clear Data?</string>
+    <string id="MCYes">Yes</string>
+    <string id="MCNo">No</string>
+    <string id="MSeasons">Seasons</string>
+    <string id="MSeasonsLbl">Season</string>
+    <string id="MSeasonsSub">Last seasons stats</string>
+    <string id="MNewSeason">New Season</string>
+    <string id="MNewSeasonSub">Start a new Season</string>
+    <string id="MSet">Set Values</string>
+    <string id="MSetSub">Edit current Season</string>
+    <string id="MSWins">Wins</string>
+    <string id="MSGames">Games</string>
+    <string id="MSCups">Cups</string>
+    <string id="MSDelete">Delete Season</string>
 </resources>

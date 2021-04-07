@@ -25,20 +25,31 @@ class StatsView extends WatchUi.View {
     var delegate;
     var model;
 
-    var total = false;
+    var season;
 
-    function initialize(aDelegate, aModel, aTotal) {
+    function initialize(aDelegate, aModel, aSeason) {
         View.initialize();
         delegate = aDelegate;
         model = aModel;
-        total = aTotal;
+        season = aSeason;
         cup = new WatchUi.Bitmap({:rezId=>Rez.Drawables.cup});
     }
 
     function onKey(kc) {
         if(kc == KEY_ENTER) {
+            season = null;
             delegate.chooseStart();
         }
+    }
+
+    function getTotalView() {
+        var nSeason;
+        if(season == null) {
+            nSeason = 0;
+        } else {
+            nSeason = null;
+        }
+        return new StatsView(delegate, model, nSeason);
     }
 
 
@@ -54,16 +65,18 @@ class StatsView extends WatchUi.View {
 
         // WHITE STUFF
         var fhl = dc.getFontHeight(Graphics.FONT_LARGE) / 2;
-        dc.drawText(1.2 * x, y/2 - fhl, Graphics.FONT_LARGE, model.getCups(total).format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(1.2 * x, y/2 - fhl, Graphics.FONT_LARGE, model.getCups(season).format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
 
         var fhh = dc.getFontHeight(Graphics.FONT_NUMBER_HOT) / 2;
-        dc.drawText(x + 5, y - fhh, Graphics.FONT_NUMBER_HOT, (model.getCpg(total)).format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(x + 5, y - fhh, Graphics.FONT_NUMBER_HOT, (model.getCpg(season)).format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
 
-        dc.drawText(x - 10, y + 60 - fhl, Graphics.FONT_LARGE, model.getGames(total), Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(x + 10, y + 60 - fhl, Graphics.FONT_LARGE, model.getWins(total), Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(x - 10, y + 60 - fhl, Graphics.FONT_LARGE, model.getGames(season), Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(x + 10, y + 60 - fhl, Graphics.FONT_LARGE, model.getWins(season), Graphics.TEXT_JUSTIFY_LEFT);
 
-        dc.drawText(x - 56, y - fhl, Graphics.FONT_LARGE, (model.getWpg(total)*100).format("%d") + "%", Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(2*x - 25, 50, Graphics.FONT_SMALL, "+", Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(x - 56, y - fhl, Graphics.FONT_LARGE, (model.getWpg(season)*100).format("%d") + "%", Graphics.TEXT_JUSTIFY_RIGHT);
+        if(season == 0 || season == model.getSeason() || season == null || season == -1) {
+            dc.drawText(2*x - 25, 50, Graphics.FONT_SMALL, "+", Graphics.TEXT_JUSTIFY_RIGHT);
+        }
 
 
         // GRAY STUFF
@@ -77,10 +90,14 @@ class StatsView extends WatchUi.View {
         dc.drawText(x + 55, y - 3 * fht + fhh, Graphics.FONT_TINY, WatchUi.loadResource(Rez.Strings.Cpg), Graphics.TEXT_JUSTIFY_LEFT);
 
         var txt = "";
-        if(total) {
+        if(season == 0) {
             txt = WatchUi.loadResource(Rez.Strings.AllTime);
         } else {
-            txt = WatchUi.loadResource(Rez.Strings.Season) + " " + model.getSeason().format("%d");
+            var nSeason = season;
+            if(season == null || season == -1) {
+                nSeason = model.getSeason();
+            }
+            txt = WatchUi.loadResource(Rez.Strings.Season) + " " + nSeason.format("%d");
         }
         dc.drawText(x, 10, Graphics.FONT_XTINY, txt, Graphics.TEXT_JUSTIFY_CENTER);
 

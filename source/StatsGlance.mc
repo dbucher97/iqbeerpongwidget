@@ -31,10 +31,10 @@ class StatsGlance extends WatchUi.GlanceView {
 
     function onUpdate(dc) {
         var cpg = View.findDrawableById("GlCpg");
-        cpg.setText(model.getCpg(false).format("%.1f"));
+        cpg.setText(model.getCpg(-1).format("%.1f"));
 
         var games = View.findDrawableById("GlGames");
-        games.setText(model.getGames(false).format("%d"));
+        games.setText(model.getGames(-1).format("%d"));
 
         GlanceView.onUpdate(dc);
     }
