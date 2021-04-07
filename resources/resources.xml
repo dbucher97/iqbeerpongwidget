@@ -1,0 +1,5 @@
+<resources>
+    <bitmap id="cup" filename="images/cup.png" />
+    <bitmap id="icup" filename="images/cup_ico.png" />
+    <bitmap id="hcup" filename="images/hcup.png" />
+</resources>

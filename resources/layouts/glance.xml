@@ -1,0 +1,11 @@
+<resources>
+<layout id="GlanceLayout" background="Graphics.COLOR_BLACK">
+    <label id="GlTitle" x="0" y="0" text="BeerpongStats" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_LT_GRAY" />
+    <label id="GlCpgLabel" x="46" y="Graphics.getFontHeight(Graphics.FONT_TINY) + Graphics.getFontHeight(Graphics.FONT_LARGE) - Graphics.getFontHeight(Graphics.FONT_XTINY) - 3" text="@Strings.Cpg" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_DK_GRAY" />
+    <label id="GlCpg" x="44" y="Graphics.getFontHeight(Graphics.FONT_TINY)" text="5.0" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+
+    <label id="GlGamesLabel" x="126" y="Graphics.getFontHeight(Graphics.FONT_TINY) + Graphics.getFontHeight(Graphics.FONT_LARGE) - Graphics.getFontHeight(Graphics.FONT_XTINY) - 3" text="#" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_DK_GRAY" />
+    <label id="GlGames" x="124" y="Graphics.getFontHeight(Graphics.FONT_TINY)" text="100" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+</layout>
+</resources>
+

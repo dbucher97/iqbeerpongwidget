@@ -1,0 +1,6 @@
+<layout id="ChooseLayout" background="Graphics.COLOR_BLACK">
+    <label id="ChWin" x="80%" y="20%" text="@Strings.Win" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_GREEN" font="Graphics.FONT_LARGE"/> 
+    <label id="ChLoose" x="28%" y="73%" text="@Strings.Loose" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_RED" font="Graphics.FONT_LARGE"/> 
+    <label id="ChResume" x="6%" y="45%" text="@Strings.Resume" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_LT_GRAY" font="Graphics.FONT_TINY"/> 
+    <label id="ChAbort" x="90%" y="63%" text="@Strings.Abort" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_LT_GRAY" font="Graphics.FONT_TINY"/> 
+</layout>

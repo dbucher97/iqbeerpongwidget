@@ -1,0 +1,13 @@
+<resources>
+    <string id="AppName">BeerpongStats</string>
+    <string id="Win">WON</string>
+    <string id="Loose">LOST</string>
+    <string id="Resume">RESUME</string>
+    <string id="Abort">ABORT</string>
+    <string id="Games">GAMES</string>
+    <string id="Wins">WINS</string>
+    <string id="Season">SEASON</string>
+    <string id="AllTime">ALL TIME</string>
+    <string id="Wpg">WPG</string>
+    <string id="Cpg">CPG</string>
+</resources>
