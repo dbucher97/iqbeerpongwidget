@@ -1,6 +1,6 @@
 # ConnectIQ Beer Pong Stats Widget
 
-A [https://developer.garmin.com/connect-iq/overview/](ConnectIQ) Widget App for
+A [ConnectIQ](https://developer.garmin.com/connect-iq/overview/) Widget App for
 Garmin Sports Watches to track Beer Pong Statistics.
 
 ## Description and Controls
@@ -23,7 +23,7 @@ In the Widget settings, you can begin a new season, clear data and add manual da
 ## Building
 
 To build the app locally, make sure the Garmin ConnectIQ SDK is
-[https://developer.garmin.com/connect-iq/connect-iq-basics/getting-started/](installed)
+[installed](https://developer.garmin.com/connect-iq/connect-iq-basics/getting-started/)
 and executables are in the `PATH`. To start the app, first start the simulator
 by typing `connectiq`, then build and run the app with:
 
