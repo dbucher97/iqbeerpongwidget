@@ -5,13 +5,13 @@ Garmin Sports Watches to track Beer Pong Statistics.
 
 ## Description and Controls
 
-This App allows you to track your Stats in the highly competitive sport that is
+This Widget allows you to track your Stats in the highly competitive sport that is
 _Beer Pong_. The App does nothing automatically and requires User Input at
 every step. To track a new Game, simply hit `Select` and hit `Select` for every
 cup you score. Some Beer Pong rules allow half cups for one player, which can
 be added with pressing `Up`. Two half cups will give one cup. To remove a
 mistake press `Down`. Finish the game by hitting `Back`. In the subsequent
-menu, you can choose wether you hav won or lost or abort the last game by
+menu, you can choose wether you have won or lost or abort the last game by
 pressing the button closest the marked text.
 
 You will return back to the main stats. The App also features a seasonal
@@ -38,5 +38,4 @@ getting started references to generate your key. You need to set the
 environment variable `GARMIN_DEVELOPER_KEY` to point to the key loaction. By
 default it points to `~/.garmin/developer_key`.
 
-To package the app into a `.iq` file, make sure `uuidgen` is installed and then
-run `make release`.
+To package the app into a `.iq` file run `make release`.

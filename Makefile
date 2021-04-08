@@ -9,5 +9,4 @@ run: all
 	monkeydo bin/BeerpongWidget.prg ${DEVICE}
 
 release:
-	sed -i "s/\(<iq:application.*id=\"\)[^\"]*\(\".*\)/\1$(shell uuidgen)\2/g" manifest.xml
 	monkeyc -e -f monkey.jungle -o BeerpongWidget.iq -y ${KEY}
