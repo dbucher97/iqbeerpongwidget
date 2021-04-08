@@ -1,0 +1,30 @@
+<resources>
+    <string id="AppName">BeerPongStats</string>
+    <string id="Win">GEWONNEN</string>
+    <string id="Loose">VERLOREN</string>
+    <string id="Resume">WEITER</string>
+    <string id="Abort">ABBRECHEN</string>
+    <string id="Games">SPIELE</string>
+    <string id="Wins">WINS</string>
+    <string id="Season">SAISON</string>
+    <string id="AllTime">ALLZEIT</string>
+    <string id="Wpg">WPG</string>
+    <string id="Cpg">CPG</string>
+
+    <string id="MTitle">BeerPong Menu</string>
+    <string id="MClear">Daten Löschen</string>
+    <string id="MCTitle">Daten Löchen?</string>
+    <string id="MCYes">Ja</string>
+    <string id="MCNo">Nein</string>
+    <string id="MSeasons">Saisonen</string>
+    <string id="MSeasonsLbl">Saison</string>
+    <string id="MSeasonsSub">Stats vergangener Saisonen</string>
+    <string id="MNewSeason">Neue Saison</string>
+    <string id="MNewSeasonSub">Starte eine neue Saison</string>
+    <string id="MSet">Werte setzen</string>
+    <string id="MSetSub">Bearbeite die aktuelle Saison</string>
+    <string id="MSWins">Wins</string>
+    <string id="MSGames">Spiele</string>
+    <string id="MSCups">Cups</string>
+    <string id="MSDelete">Lösche Saison</string>
+</resources>

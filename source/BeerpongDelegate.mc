@@ -63,7 +63,7 @@ class BeerpongDelegate extends WatchUi.BehaviorDelegate {
 
     function chooseMenu() {
         state = 2;
-        WatchUi.switchToView(getView(), self, WatchUi.SLIDE_UP);
+        WatchUi.switchToView(getView(), self, WatchUi.SLIDE_IMMEDIATE);
     }
 
     function onBack() {

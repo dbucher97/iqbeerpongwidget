@@ -49,6 +49,9 @@ class StatsViewPreviewDelegate extends WatchUi.BehaviorDelegate {
             }
         } else if(evt.getKey() == KEY_ENTER) {
             WatchUi.pushView(new ChangeValuesMenu(model, season), new ChangeValuesDelegate(model, season, 4), WatchUi.SLIDE_LEFT);
+        } else if(evt.getKey() == KEY_ESC) {
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
         }
+        return true;
     }
 }

@@ -16,6 +16,7 @@
 using Toybox.WatchUi;
 
 class ChangeValuesMenu extends WatchUi.Menu2 {
+
     function initialize(model, season){
         Menu2.initialize({:title=>WatchUi.loadResource(Rez.Strings.MSet)});
         addItem(new MenuItem(WatchUi.loadResource(Rez.Strings.MSCups), model.getCups(season).format("%.1f"), "mscups", {}));
@@ -39,13 +40,7 @@ class ChangeValuesDelegate extends WatchUi.Menu2InputDelegate {
     }
 
     function onSelect(item) {
-        if(item.getId().equals("mscups")) {
-            System.println("Cups");
-        } else if(item.getId().equals("msgames")) {
-            System.println("Games");
-        } else if(item.getId().equals("mswins")) {
-            System.println("Wins");
-        } else if(item.getId().equals("msdelete")) {
+        if(item.getId().equals("msdelete")) {
             var menu = new Rez.Menus.ClearMenu();
             menu.setTitle(WatchUi.loadResource(Rez.Strings.MSDelete) + " " + season.format("%d") + "?");
             WatchUi.pushView(menu, self, WatchUi.SLIDE_LEFT);
@@ -56,6 +51,9 @@ class ChangeValuesDelegate extends WatchUi.Menu2InputDelegate {
             }
         } else if(item.getId() == :clearAbort) {
             WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        } else {
+            var delegate = new NumberPickerDelegate(model, season, item);
+            WatchUi.pushView(delegate.getView(), delegate, WatchUi.SLIDE_LEFT);
         }
     }
 }

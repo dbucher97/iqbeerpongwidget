@@ -68,5 +68,6 @@ class SeasonsMenu extends WatchUi.Menu2 {
                 "mseason" + i.format("%d"), {}));
         }
     }
+
 }
 
