@@ -19,8 +19,8 @@
             <iq:product id="fr745"/>
             <iq:product id="fr935"/>
             <iq:product id="fr945"/>
-            <iq:product id="vivoactive4"/>
-            <iq:product id="vivoactive4s"/>
+            <!-- <iq:product id="vivoactive4"/> -->
+            <!-- <iq:product id="vivoactive4s"/> -->
         </iq:products>
         <iq:permissions/>
         <iq:languages>
